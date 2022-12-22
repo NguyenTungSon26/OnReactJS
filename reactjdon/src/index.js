@@ -30,4 +30,12 @@ import App from "./App";
 
 //Cơ chế: Có thể truyền gtri từ com heading sang com app, ở ví dụ com app mà truyền đc nội dung xin chào sang heading. Com app gọi tới thằng com heading xog truyền nội dung -> heading lấy nội dung và hiển thị nội dung đó
 
+// const App = () => {
+//   const eventHandle = (val) => {
+//     alert(val);
+//   };
+//   return <h1 onClick={() => eventHandle("Hello")}>Event Handle</h1>;
+//   // Muốn truyền phải viết dưới dạng arrow funtion
+// };
+
 ReactDom.render(<App />, document.getElementById("root"));
