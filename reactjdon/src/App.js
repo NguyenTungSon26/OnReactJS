@@ -1,18 +1,29 @@
-import Class from "./Component/Class";
-import Footer from "./Component/Footer";
-import Library from "./Component/Library";
-import Slider from "./Component/Slider";
-import Student from "./Component/Student";
+import React from "react";
+import Number from "./Component/Number";
+import Slide from "./Component/Slide";
 
 const App = () => {
+  //tạo state để lưu đường dẫn ảnh
+  const [imgUrl, setImgUrl] = React.useState("images/banner-1.jpg");
+  const updateImgUrl1 = () => {
+    return setImgUrl("images/banner-1.jpg");
+  };
+  const updateImgUrl2 = () => {
+    return setImgUrl("images/banner-2.jpg");
+  };
+  const updateImgUrl3 = () => {
+    return setImgUrl("images/banner-3.jpg");
+  };
   return (
-    <>
-      <Slider />
-      <Student />
-      <Class />
-      <Library />
-      <Footer />
-    </>
+    <div id="slide">
+      <Slide imgUrl={imgUrl} />
+      {/* Truyền sang slider để lấy xuống */}
+      <Number
+        updateImgUrl1={updateImgUrl1}
+        updateImgUrl2={updateImgUrl2}
+        updateImgUrl3={updateImgUrl3}
+      />
+    </div>
   );
 };
 
