@@ -1,41 +1,23 @@
 import React from "react";
 import ReactDom from "react-dom";
+// import "./style.css";
 import App from "./App";
 
-// Truyền trực tiếp
-
 // const App = () => {
-//   const [data, setData] = React.useState("Welcome ReactJS");
-
-//   const action = () => {
-//     return setData("Xin chào rì ách JS");
+//   const eventHandle = (e, val) => {
+//     e.preventDefault();
+//     console.log(e.target.name); //lấy được tên
+//     console.log(e.target.type); //lấy được kiểu
+//     console.log(e.target.value); //lấy được giá trị của ptu vừa kích hoát sự kiện do người dùng nhập vào
+//     console.log(val);
 //   };
-//   return <h1 onClick={action}>{data}</h1>;
-// };
-
-// Truyền thông qua component khác
-
-// const Heading = (props) => {
-//   return <p>{props.details}</p>;
-// };
-
-// const App = (props) => {
 //   return (
-//     <>
-//       <h1>Title</h1>
-//       <Heading details="Xin chào" />
-//     </>
+//     <form className="bg" onSubmit={eventHandle}>
+//       {/* //truyền giá trị thông qua sự kiện thì dùng ()=> phỉa có e và tham số t2 là gtri truyền. k truyền thì k cần event còn nếu truyền thì buộc cphair có e và tso t2 ms là truyền */}
+//       <input onChange={(e) => eventHandle(e, "Son")} type="text" name="email" />
+//       <input type="submit" name="sbm" value="send" />
+//     </form>
 //   );
-// };
-
-//Cơ chế: Có thể truyền gtri từ com heading sang com app, ở ví dụ com app mà truyền đc nội dung xin chào sang heading. Com app gọi tới thằng com heading xog truyền nội dung -> heading lấy nội dung và hiển thị nội dung đó
-
-// const App = () => {
-//   const eventHandle = (val) => {
-//     alert(val);
-//   };
-//   return <h1 onClick={() => eventHandle("Hello")}>Event Handle</h1>;
-//   // Muốn truyền phải viết dưới dạng arrow funtion
 // };
 
 ReactDom.render(<App />, document.getElementById("root"));

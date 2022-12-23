@@ -1,19 +1,29 @@
 import React from "react";
-import Large from "./Component/Large";
-import Small from "./Component/Small";
+import Description from "./Component/Description";
+import Thambnail from "./Component/Thambnail";
+import Title from "./Component/Title";
 
 const App = () => {
-  const [imgUrl, setImgUrl] = React.useState("images/img-1.jpg");
-  //viết phương thức thay đổi để bấm vào ảnh sẽ tự thay rồi đưa sang bên com thực thi. hàm updateImgUrl sẽ đổi url hiện tại (thằng state) thành url mong muốn với dkien phải truyền mong muốn vào
-  const updateImgUrl = (value) => {
-    return setImgUrl(value);
+  const [title, setTitle] = React.useState("What is Lorem Ipsum?");
+
+  const [sttTitle, setSttTitle] = React.useState(true);
+
+  const updateSttTitle = () => {
+    return setSttTitle(!sttTitle);
   };
+
   return (
-    <div id="products">
-      <Large imgUrl={imgUrl} />
-      <Small imgUrl={imgUrl} updateImgUrl={updateImgUrl} />
+    <div id="main">
+      <div className="content-item">
+        <Thambnail />
+        <Title
+          title={title}
+          sttTitle={sttTitle}
+          updateSttTitle={updateSttTitle}
+        />
+        <Description />
+      </div>
     </div>
   );
 };
-
 export default App;
