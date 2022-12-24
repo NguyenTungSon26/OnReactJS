@@ -1,37 +1,25 @@
-import React, { useEffect } from "react";
-import Description from "./Component/Description";
-import Thambnail from "./Component/Thambnail";
-import Title from "./Component/Title";
+import React from "react";
+import Button from "./Component/Button";
+import Number from "./Component/Number";
 
 const App = () => {
-  const [title, setTitle] = React.useState("Loading...");
-
-  const [sttTitle, setSttTitle] = React.useState(true);
-
-  const updateSttTitle = () => {
-    return setSttTitle(!sttTitle);
+  const [number, setNumber] = React.useState(0);
+  const updateNumber = () => {
+    return setNumber(Math.round(Math.random() * 10));
   };
-  const updateTitle = (val) => {
-    return setTitle(val);
+  const resetNumber = () => {
+    return setNumber(0);
   };
-  // build componentDidMount bằng useEfffect và set time =2000ms để đổi thành tiêu đề mong muốn. các hàm đều có hàm con bên trong để thực thi
-  useEffect(() => {
-    setTimeout(() => {
-      setTitle("What is Lorem Ipsum?");
-    }, 2000);
-  }, []);
 
   return (
-    <div id="main">
-      <div className="content-item">
-        <Thambnail />
-        <Title
-          updateTitle={updateTitle}
-          title={title}
-          sttTitle={sttTitle}
-          updateSttTitle={updateSttTitle}
-        />
-        <Description />
+    <div className="container">
+      <div className="row">
+        <div className="col-lg-12 col-md-12 col-sm-12 text-center">
+          <div id="main">
+            <Number number={number} />
+            <Button resetNumber={resetNumber} updateNumber={updateNumber} />
+          </div>
+        </div>
       </div>
     </div>
   );
