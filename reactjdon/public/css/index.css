@@ -1,38 +1,35 @@
-body{
-font-family:arial;
-font-size:18px;
-color:#666;}
+*{
+    margin:0;
+    padding:0;}
+    
+    body{
+    font-family:arial;
+    font-size:14px;
+    color:#333;
+    height: 1000px;}
 
-a{
-color:#333;}
+    #body{
+        margin-top: 80px;
+    }
 
-h2,h3,#slide h5{
-font-size:36px;
-text-transform:capitalize;}
+    #body h4{
+        font-size: 18px;
+    }
 
-h3{
-font-size:28px;}
+    #body h4 a{
+        color: #333;
+    }
 
-h4{
-font-size:24px;
-}
-
-h2, h3, h4{
-margin-bottom:25px;}
-
-.section{
-padding-top:50px;
-padding-bottom:50px;
-}
-
-.bg-black{
-background:#000;}
-
-.bg-white{
-background:#FFF;}
-
-#footer ul{
-padding:0;}
-
-#footer ul li{
-list-style:none;}
+    #page-404{
+        font-size: 36px;
+        color: #999;
+        text-align: center;
+    }
+    
+    #footer{
+        color:#fff;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    

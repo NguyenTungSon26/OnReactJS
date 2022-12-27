@@ -1,23 +1,37 @@
-import React from "react";
-import store from "./redux-setup/store";
-import { Provider } from "react-redux";
-import TimeUp from "./Component/TimeUp";
-import TimeDown from "./Component/TimeDown";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import About from "./Component/About";
+import Contact from "./Component/Contact";
+import Details from "./Component/Details";
+import Footer from "./Component/Footer";
+import Header from "./Component/Header";
+import Home from "./Component/Home";
+import Page404 from "./Component/Page404";
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-3 col-md-3 col-sm-8 col-8">
-            <TimeUp />
+    <BrowserRouter>
+      <div>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12">
+              <Header />
+            </div>
           </div>
-          <div className="col-lg-3 col-md-3 col-sm-8 col-8">
-            <TimeDown />
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/details" element={<Details />} />
+          <Route path="*" element={<Page404 />} />
+        </Routes>
+        <div className="container-fluid">
+          <div className="row">
+            <Footer />
           </div>
         </div>
       </div>
-    </Provider>
+    </BrowserRouter>
   );
 };
 export default App;
