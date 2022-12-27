@@ -1,37 +1,32 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import About from "./Component/About";
-import Contact from "./Component/Contact";
-import Details from "./Component/Details";
-import Footer from "./Component/Footer";
+import React, { useEffect } from "react";
+import axios from "axios";
+import User from "./Component/User";
 import Header from "./Component/Header";
-import Home from "./Component/Home";
-import Page404 from "./Component/Page404";
-
 const App = () => {
+  const [data, setData] = React.useState([]);
+
+  useEffect(async () => {
+    const response = await axios("https://jsonplaceholder.typicode.com/users");
+    return setData(response.data);
+  }, []);
   return (
-    <BrowserRouter>
-      <div>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-lg-12 col-md-12 col-sm-12">
-              <Header />
-            </div>
-          </div>
-        </div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/details" element={<Details />} />
-          <Route path="*" element={<Page404 />} />
-        </Routes>
-        <div className="container-fluid">
-          <div className="row">
-            <Footer />
-          </div>
-        </div>
-      </div>
-    </BrowserRouter>
+    <div id="wrapper" className="container">
+      <Header />
+      <table className="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th>Fullname</th>
+            <th>Username</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((value, index) => (
+            <User user={value} />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 export default App;
