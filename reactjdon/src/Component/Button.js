@@ -1,9 +1,15 @@
+import { useDispatch } from "react-redux";
 const Button = (props) => {
+  const dispatch = useDispatch();
   const clickGetNumBer = () => {
-    props.updateNumber();
+    dispatch({
+      type: "ACTION",
+    });
   };
   const clickResetNumber = () => {
-    props.resetNumber();
+    dispatch({
+      type: "RESET",
+    });
   };
 
   return (
