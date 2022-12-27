@@ -1,32 +1,22 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import User from "./Component/User";
-import Header from "./Component/Header";
-const App = () => {
-  const [data, setData] = React.useState([]);
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Post from "./pages/Post";
+import User from "./pages/User";
+import Header from "./shared/components/Layout/Header";
+import Menu from "./shared/components/Layout/Menu";
 
-  useEffect(async () => {
-    const response = await axios("https://jsonplaceholder.typicode.com/users");
-    return setData(response.data);
-  }, []);
+const App = () => {
   return (
-    <div id="wrapper" className="container">
-      <Header />
-      <table className="table table-dark table-hover">
-        <thead>
-          <tr>
-            <th>Fullname</th>
-            <th>Username</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((value, index) => (
-            <User user={value} />
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <BrowserRouter>
+      <div id="wrapper" className="container">
+        <Header />
+        <Menu />
+        <Routes>
+          <Route path="/" element={<User />} />
+          <Route path="/posts" element={<Post />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 };
 export default App;
